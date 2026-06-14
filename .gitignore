@@ -12,6 +12,10 @@ dist/
 build/
 .eggs/
 
+# Docs
+DEVPOST_SUBMISSION.md
+generate_devpost_images.py
+
 # Node
 node_modules/
 npm-debug.log*

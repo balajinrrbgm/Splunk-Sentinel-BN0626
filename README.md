@@ -83,7 +83,10 @@ Built on Splunk's complete AI ecosystem, SplunkSentinel demonstrates the future 
 
 ### Prerequisites
 
-- Docker & Docker Compose
+- Docker & Docker Compose **(recommended path)**
+- For local development without Docker:
+  - Python **3.11+** and `pip`
+  - Node.js **18+** and `npm`
 - (Optional) Splunk Enterprise/Cloud instance with MCP Server enabled
 
 ### One-Command Setup
@@ -114,6 +117,90 @@ SplunkSentinel includes a full **demo mode** that runs without a live Splunk ins
 # Explicitly enable demo mode
 DEMO_MODE=true docker-compose up
 ```
+
+---
+
+## 🛠️ Local Development (Without Docker)
+
+Prefer to run the services directly? Start the backend and frontend in two separate terminals.
+
+### 1. Backend (FastAPI)
+
+```bash
+cd backend
+
+# Create and activate a virtual environment
+python -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Copy environment config from the repo root (or export vars manually)
+cp ../.env.example .env
+
+# Run the API (defaults to demo mode)
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+### 2. Frontend (React + Vite)
+
+```bash
+cd frontend
+
+# Install dependencies
+npm install
+
+# Start the dev server
+npm run dev
+```
+
+The dashboard will be available at http://localhost:5173 and will connect to the backend at http://localhost:8000.
+
+---
+
+## 📦 Dependencies
+
+All dependencies are declared in version-pinned manifests:
+
+| Component | Manifest | Key packages |
+|-----------|----------|--------------|
+| Backend | [`backend/requirements.txt`](backend/requirements.txt) | FastAPI, Uvicorn, Pydantic, splunk-sdk, httpx, websockets, structlog |
+| Frontend | [`frontend/package.json`](frontend/package.json) | React 18, Vite, @vitejs/plugin-react |
+| Splunk App | Splunk Python SDK AI runtime | Alert actions & modular inputs (see [`splunk_app/`](splunk_app/)) |
+
+---
+
+## ⚙️ Environment Configuration
+
+Copy [`.env.example`](.env.example) to `.env` and adjust as needed. In **demo mode**, no Splunk or model endpoints are required — sane defaults are used everywhere.
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `SPLUNK_HOST` | `localhost` | Splunk management host |
+| `SPLUNK_PORT` | `8089` | Splunk management port |
+| `SPLUNK_TOKEN` | _(empty)_ | Splunk auth token (only needed for live mode) |
+| `SPLUNK_MCP_ENDPOINT` | `http://localhost:8088/mcp` | Splunk MCP Server endpoint |
+| `FOUNDATION_SEC_ENDPOINT` | _(empty)_ | Foundation-Sec model endpoint (live mode) |
+| `CISCO_DTSM_ENDPOINT` | _(empty)_ | Cisco Deep Time Series Model endpoint (live mode) |
+| `BACKEND_PORT` | `8000` | Backend API port |
+| `FRONTEND_PORT` | `5173` | Frontend dashboard port |
+| `LOG_LEVEL` | `INFO` | Logging verbosity |
+| `DEMO_MODE` | `true` | Run with bundled sample data — no live Splunk required |
+
+---
+
+## 🗃️ Sample Datasets
+
+Demo mode is powered by realistic, ready-to-use security datasets in [`backend/sample_data/`](backend/sample_data):
+
+| File | Contents |
+|------|----------|
+| [`sample_alerts.json`](backend/sample_data/sample_alerts.json) | Prioritized security alerts (brute force, SQL injection, lateral movement, etc.) with severity, source IPs, hosts, and MITRE-relevant fields |
+| [`security_events.json`](backend/sample_data/security_events.json) | Raw security events used for investigation and timeline correlation |
+| [`network_traffic.json`](backend/sample_data/network_traffic.json) | Network flow data used by the Forecast Agent for anomaly prediction |
+
+These datasets let evaluators run the complete agent pipeline end-to-end without connecting a live Splunk instance.
 
 ---
 
