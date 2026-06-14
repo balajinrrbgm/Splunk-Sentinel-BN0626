@@ -244,10 +244,4 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 ---
 
-## 🏆 Hackathon
-
-Built for the [Splunk Agentic Ops Hackathon 2026](https://splunk.devpost.com/) — demonstrating the power of multi-agent AI systems for autonomous security operations.
-
----
-
 *Built with ❤️ using Splunk AI, Foundation-Sec, and the power of autonomous agents.*
