@@ -1,0 +1,22 @@
+[
+  {"_time": "2024-12-01T00:00:00Z", "src_ip": "10.0.1.50", "dest_ip": "10.0.3.25", "bytes": 1024, "dest_port": 443, "protocol": "TCP", "action": "allowed", "direction": "internal"},
+  {"_time": "2024-12-01T00:15:00Z", "src_ip": "10.0.2.10", "dest_ip": "8.8.8.8", "bytes": 512, "dest_port": 53, "protocol": "UDP", "action": "allowed", "direction": "outbound"},
+  {"_time": "2024-12-01T01:00:00Z", "src_ip": "185.220.101.42", "dest_ip": "10.0.1.50", "bytes": 2048, "dest_port": 22, "protocol": "TCP", "action": "allowed", "direction": "inbound"},
+  {"_time": "2024-12-01T02:30:00Z", "src_ip": "10.0.1.50", "dest_ip": "10.0.6.10", "bytes": 8192, "dest_port": 3306, "protocol": "TCP", "action": "allowed", "direction": "internal"},
+  {"_time": "2024-12-01T07:00:00Z", "src_ip": "185.220.101.42", "dest_ip": "10.0.1.50", "bytes": 45056, "dest_port": 22, "protocol": "TCP", "action": "allowed", "direction": "inbound"},
+  {"_time": "2024-12-01T07:15:00Z", "src_ip": "185.220.101.42", "dest_ip": "10.0.1.50", "bytes": 128000, "dest_port": 22, "protocol": "TCP", "action": "allowed", "direction": "inbound"},
+  {"_time": "2024-12-01T08:00:00Z", "src_ip": "185.220.101.42", "dest_ip": "10.0.1.50", "bytes": 340000, "dest_port": 22, "protocol": "TCP", "action": "allowed", "direction": "inbound"},
+  {"_time": "2024-12-01T08:45:00Z", "src_ip": "10.0.1.50", "dest_ip": "10.0.3.25", "bytes": 4096, "dest_port": 3389, "protocol": "TCP", "action": "allowed", "direction": "internal"},
+  {"_time": "2024-12-01T08:50:00Z", "src_ip": "10.0.1.50", "dest_ip": "10.0.2.10", "bytes": 2048, "dest_port": 445, "protocol": "TCP", "action": "allowed", "direction": "internal"},
+  {"_time": "2024-12-01T08:55:00Z", "src_ip": "10.0.1.50", "dest_ip": "10.0.4.15", "bytes": 1024, "dest_port": 445, "protocol": "TCP", "action": "allowed", "direction": "internal"},
+  {"_time": "2024-12-01T09:00:00Z", "src_ip": "10.0.1.50", "dest_ip": "10.0.5.33", "bytes": 2048, "dest_port": 3389, "protocol": "TCP", "action": "allowed", "direction": "internal"},
+  {"_time": "2024-12-01T09:10:00Z", "src_ip": "10.0.4.15", "dest_ip": "203.0.113.50", "bytes": 2415919104, "dest_port": 443, "protocol": "TCP", "action": "allowed", "direction": "outbound"},
+  {"_time": "2024-12-01T09:15:00Z", "src_ip": "10.0.3.25", "dest_ip": "198.51.100.77", "bytes": 64000, "dest_port": 443, "protocol": "TCP", "action": "allowed", "direction": "outbound"},
+  {"_time": "2024-12-01T09:30:00Z", "src_ip": "10.0.5.33", "dest_ip": "8.8.8.8", "bytes": 15000, "dest_port": 53, "protocol": "UDP", "action": "allowed", "direction": "outbound"},
+  {"_time": "2024-12-01T09:45:00Z", "src_ip": "10.0.8.44", "dest_ip": "104.18.11.23", "bytes": 128000, "dest_port": 4444, "protocol": "TCP", "action": "allowed", "direction": "outbound"},
+  {"_time": "2024-12-01T10:00:00Z", "src_ip": "91.198.174.20", "dest_ip": "10.0.2.10", "bytes": 4096, "dest_port": 80, "protocol": "TCP", "action": "blocked", "direction": "inbound"},
+  {"_time": "2024-12-01T10:05:00Z", "src_ip": "45.33.32.156", "dest_ip": "10.0.7.5", "bytes": 32000, "dest_port": 22, "protocol": "TCP", "action": "allowed", "direction": "inbound"},
+  {"_time": "2024-12-01T10:20:00Z", "src_ip": "10.0.9.12", "dest_ip": "192.0.2.100", "bytes": 8192, "dest_port": 443, "protocol": "TCP", "action": "allowed", "direction": "outbound"},
+  {"_time": "2024-12-01T10:35:00Z", "src_ip": "10.0.10.8", "dest_ip": "142.250.80.46", "bytes": 524288000, "dest_port": 443, "protocol": "TCP", "action": "allowed", "direction": "outbound"},
+  {"_time": "2024-12-01T11:00:00Z", "src_ip": "103.224.182.244", "dest_ip": "10.0.0.1", "bytes": 4096, "dest_port": 1194, "protocol": "UDP", "action": "allowed", "direction": "inbound"}
+]

@@ -1,0 +1,41 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    environment:
+      - SPLUNK_HOST=${SPLUNK_HOST:-localhost}
+      - SPLUNK_PORT=${SPLUNK_PORT:-8089}
+      - SPLUNK_TOKEN=${SPLUNK_TOKEN:-}
+      - SPLUNK_MCP_ENDPOINT=${SPLUNK_MCP_ENDPOINT:-http://localhost:8088/mcp}
+      - FOUNDATION_SEC_ENDPOINT=${FOUNDATION_SEC_ENDPOINT:-}
+      - CISCO_DTSM_ENDPOINT=${CISCO_DTSM_ENDPOINT:-}
+      - DEMO_MODE=${DEMO_MODE:-true}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    volumes:
+      - ./backend:/app
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "${FRONTEND_PORT:-5173}:5173"
+    environment:
+      - VITE_API_URL=http://backend:8000
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
