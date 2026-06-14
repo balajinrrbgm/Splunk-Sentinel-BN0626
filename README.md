@@ -3,7 +3,6 @@
 ### AI-Powered Autonomous SOC Analyst — From Alert Storm to Actionable Intelligence in Seconds
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Splunk Agentic Ops Hackathon](https://img.shields.io/badge/Hackathon-Splunk%20Agentic%20Ops%202026-orange.svg)](https://splunk.devpost.com/)
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11+-green.svg)](https://python.org)
 [![React 18](https://img.shields.io/badge/React-18-61dafb.svg)](https://reactjs.org)
 
